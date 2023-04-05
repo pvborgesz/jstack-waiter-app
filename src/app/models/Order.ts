@@ -5,7 +5,7 @@ export const Order = model(
   new Schema({
     name: {
       type: String,
-      required: true,
+      required: false,
     },
     table: {
       type: String,
@@ -13,7 +13,7 @@ export const Order = model(
     },
     status: {
       type: String,
-      enum: ["WAITING", "IN PRODUCTION", "DONE"],
+      enum: ["WAITING", "IN_PRODUCTION", "DONE"],
       default: "WAITING",
       required: true,
     },
@@ -22,7 +22,7 @@ export const Order = model(
       default: Date.now,
       required: true,
     },
-    product: {
+    products: {
       type: [
         {
           product: {
